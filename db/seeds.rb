@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "open-uri"
 
 puts "cleaning database"
 Ingredient.destroy_all
@@ -17,9 +16,5 @@ Ingredient.create(name: "oranje juice")
 Ingredient.create(name: "sugar")
 Ingredient.create(name: "egg yolk")
 Ingredient.create(name: "crushed dice")
-
-file = URI.open('https://unsplash.com/photos/E0ylYi5fGaU')
-cocktail = Cocktail.new(title: 'Martini', body: "Stirred please")
-cocktail.photo.attach(io: file, filename: 'martini.png', content_type: 'image/png')
 
 puts "finished database"
