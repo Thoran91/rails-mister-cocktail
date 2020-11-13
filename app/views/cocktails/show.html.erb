@@ -1,12 +1,28 @@
 <h1>Cocktails#show</h1>
 <h2><%= @cocktail.name %></h2>
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%if @cocktail.photo.attached?%>
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill%>
+<%end%>
+
+<ul class="list-group">
+  <% @cocktail.doses.each do |dose| %>
+    <li class="list-group-item"><%= dose.description %>-<%= dose.ingredient.name%></li>
+  <% end %>
+</ul>
 
 <h3><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %><h3>
-
 <h3><%= link_to "Return to home", root_path %><h3>
 
 <p>Find me in app/views/cocktails/show.html.erb</p>
 
-
+<!-- Use this to delete a dose, bit NOT delete the drink 
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= link_to "Remove",
+                  review_path(review),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    </li>
+    -->
 
