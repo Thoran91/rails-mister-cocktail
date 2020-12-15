@@ -7,7 +7,10 @@
 
 <ul class="list-group">
   <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item"><%= dose.description %>-<%= dose.ingredient.name%></li>
+    <li class="list-group-item">
+   `  <%= dose.description %>-<%= dose.ingredient.name%>
+      <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>`
+    </li>
   <% end %>
 </ul>
 
@@ -15,14 +18,3 @@
 <h3><%= link_to "Return to home", root_path %><h3>
 
 <p>Find me in app/views/cocktails/show.html.erb</p>
-
-<!-- Use this to delete a dose, bit NOT delete the drink 
-    <li class="list-group-item">
-      <%= review.content %>
-      <%= link_to "Remove",
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-    </li>
-    -->
-
