@@ -9,12 +9,20 @@
 puts "cleaning database"
 Ingredient.destroy_all
 
+Ingredient.create(name: "orange juice")
+Ingredient.create(name: "tomato juice")
+Ingredient.create(name: "lemon juice")
+
 Ingredient.create(name: "vodka")
+Ingredient.create(name: "whiskey")
+Ingredient.create(name: "rum")
+
 Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "oranje juice")
+Ingredient.create(name: "crushed ice")
+
+Ingredient.create(name: "mint leaf")
+
 Ingredient.create(name: "sugar")
 Ingredient.create(name: "egg yolk")
-Ingredient.create(name: "crushed dice")
 
 puts "finished database"
