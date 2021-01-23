@@ -1,13 +1,19 @@
 <h1>Cocktails#index</h1>
 <p>Find me in app/views/cocktails/index.html.erb</p>
 
-<ul>
+<div class="row flex">
   <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-    <%if cocktail.photo.attached?%>
-      <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill%>
-    <%end%>
+    <%= link_to cocktail_path(cocktail), :action => 'go' do %>
+      <div class="cocktail-card grow m-5">
+        <%if cocktail.photo.attached?%>
+          <%= cl_image_tag cocktail.photo.key, height: 400, width: 400, crop: :fill%>
+        <% else %>
+          <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg", height: 400, width: 400, crop: :fill %>
+        <%end%>
+        <h2> <%= cocktail.name %> </h2>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
 
 <h3><%= link_to "Add a new cocktail", new_cocktail_path %><h3>
