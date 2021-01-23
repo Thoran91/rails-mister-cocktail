@@ -1,20 +1,18 @@
-<h1>Cocktails#show</h1>
-<h2><%= @cocktail.name %></h2>
+<div class="image-bg m-20">
+  <h2><%= @cocktail.name %></h2>
 
-<%if @cocktail.photo.attached?%>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill%>
-<%end%>
-
-<ul class="list-group">
   <% @cocktail.doses.each do |dose| %>
     <li class="list-group-item">
-   `  <%= dose.description %>-<%= dose.ingredient.name%>
+      <%= dose.description %>-<%= dose.ingredient.name%>
       <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>`
     </li>
   <% end %>
-</ul>
-
-<h3><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %><h3>
-<h3><%= link_to "Return to home", root_path %><h3>
-
-<p>Find me in app/views/cocktails/show.html.erb</p>
+  
+  <%if @cocktail.photo.attached?%>
+    <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+  <% else %>
+    <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg", height: 400, width: 400 %>
+  <%end%>
+  <h3><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %><h3>
+  <h3><%= link_to "Return to home", root_path %><h3>
+</div>
