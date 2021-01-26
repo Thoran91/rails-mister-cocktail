@@ -1,12 +1,9 @@
 .image-bg {
-    max-width: 100%;
-    background-color: red;
-    margin: auto;
+    width: 1000x;
+    height: 500px;
 }
 
-.image-bg img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-    object-fit: contain;
+.dose-list {
+    background-color: white;
+    width: fit-content;
 }
