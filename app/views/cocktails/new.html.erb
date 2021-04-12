@@ -1,16 +1,21 @@
 <div class="container d-flex flex-column justify-content-center">
-  <h1 class="text-center">Cocktails#new</h1>
+  <h1 class="text-center">Add a new cocktail</h1>
   <div class="d-flex justify-content-center">
     <%= simple_form_for [@cocktail] do |f| %>
       <%= f.input :name %>
       <%= f.input :photo, as: :file %>
-      <%= f.button :submit, class: "bt btn-primary" %>
+      <div class="center-button">
+        <%= f.button :submit, class: "bt btn-primary grow" %>
+      </div>
     <% end %>
   </div>
-  <%= link_to root_path, :action => 'go' do %>
-    <div class="text-center grow add-new-button">
-      <h3 class="add-new-text">Return to home</h3>
-    </div>
-  <% end %>
+  <div class="return-home">
+    <%= link_to root_path, :action => 'go' do %>
+      <div class="text-center grow add-new-button">
+        <i class="fas fa-arrow-left fa-2x"></i>
+        <h3 class="add-new-text">Return to home</h3>
+      </div>
+    <% end %>
+  </div>
   <!--<p>Find me in app/views/cocktails/new.html.erb</p>-->
 </div>
