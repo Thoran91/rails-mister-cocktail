@@ -1,21 +1,39 @@
-<div class="container">
-  <h2><%= @cocktail.name %></h2>
-  <%if @cocktail.photo.attached?%>
-    <%= cl_image_tag @cocktail.photo.key, class: "image-bg" %>
-  <% else %>
-    <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg" %>
-  <%end%>
-
-  <% @cocktail.doses.each do |dose| %>
-    <div class="dose-list">
-      <%= dose.description %>-<%= dose.ingredient.name%>
-      <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>`
+<div class="container show-container flex m-100">
+  <div class="row">
+    <div class="col">
+      <%if @cocktail.photo.attached?%> 
+        <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+      <% else %>
+        <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg" %>
+      <%end%>
     </div>
-  <% end %>
-
-  <h3><%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %><h3>
-
-  <h3><%= link_to "Return to home", root_path %><h3>
-
+    <div class="col">
+      <div class="row justify-content-center">
+        <h2><%= @cocktail.name %></h2>
+      </div>
+      <div class="row justify-content-center align-items-end">
+        <%= link_to new_cocktail_dose_path(@cocktail), :action => 'go' do %>
+          <div class="text-center grow add-new-button">
+            <h3 class="add-new-text">Add a dose</h3>
+          </div>
+        <% end %>
+        <%= link_to root_path, :action => 'go' do %>
+          <div class="text-center grow add-new-button">
+            <h3 class="add-new-text">Return to home</h3>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <% @cocktail.doses.each do |dose| %>
+          <div class="dose-list">
+            <%= dose.description %>-<%= dose.ingredient.name%>
+            <%= link_to raw('<i class="fas fa-trash"></i>'), dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>`
+          </div>
+        <% end %>
+      </div> 
+    </div>
+  </div>
 </div>
+
+
 

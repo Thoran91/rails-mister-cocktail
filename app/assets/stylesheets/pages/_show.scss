@@ -1,9 +1,19 @@
-.image-bg {
-    width: 1000x;
-    height: 500px;
-}
 
 .dose-list {
     background-color: white;
     width: fit-content;
+    margin: 10px;
 }
+
+.container {
+    margin-top: 50px;
+    position: relative;
+}
+
+.options {
+    bottom: 0;
+    position: absolute;
+}
+
+
+

@@ -1,10 +1,16 @@
-<h1>Cocktails#new</h1>
-
-<%= simple_form_for [@cocktail] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, class: "bt btn-primary" %>
-<% end %>
-
-<h3><%= link_to "Return to home", root_path %><h3>
-<p>Find me in app/views/cocktails/new.html.erb</p>
+<div class="container d-flex flex-column justify-content-center">
+  <h1 class="text-center">Cocktails#new</h1>
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for [@cocktail] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "bt btn-primary" %>
+    <% end %>
+  </div>
+  <%= link_to root_path, :action => 'go' do %>
+    <div class="text-center grow add-new-button">
+      <h3 class="add-new-text">Return to home</h3>
+    </div>
+  <% end %>
+  <!--<p>Find me in app/views/cocktails/new.html.erb</p>-->
+</div>

@@ -1,19 +1,25 @@
-<h1>Cocktails App</h1>
-<p>This is a cocktails app</p>
-
-<div class="row flex">
-  <% @cocktails.each do |cocktail| %>
-    <%= link_to cocktail_path(cocktail), :action => 'go' do %>
-      <div class="cocktail-card grow m-5">
-        <%if cocktail.photo.attached?%>
-          <%= cl_image_tag cocktail.photo.key, height: 400, width: 400, crop: :fill%>
-        <% else %>
-          <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg", height: 400, width: 400, crop: :fill %>
-        <%end%>
-        <h2> <%= cocktail.name %> </h2>
-      </div>
-    <% end %>
+<div class="container flex">
+  <h1 class="text-center">Cocktails App</h1>
+  <p class="text-center">This is a cocktails app</p>
+  <%= link_to new_cocktail_path, :action => 'go' do %>
+    <div class="text-center grow add-new-button">
+      <i class="fas fa-plus fa-2x"></i>
+      <h3 class="add-new-text">Add a new cocktail</h3>
+    </div>
   <% end %>
+  <div class="d-flex flex-wrap justify-content-around">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail), :action => 'go' do %>
+        <div class="cocktail-card grow m-5">
+          <%if cocktail.photo.attached?%>
+            <%= cl_image_tag cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+          <% else %>
+            <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg", height: 400, width: 400, crop: :fill %>
+          <%end%>
+          <h2> <%= cocktail.name %> </h2>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
-<h3><%= link_to "Add a new cocktail", new_cocktail_path %><h3>
