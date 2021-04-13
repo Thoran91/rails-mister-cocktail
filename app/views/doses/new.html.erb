@@ -1,16 +1,21 @@
-<div class="container">
-  <h1>Doses#new</h1>
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :description%>
-    <%= f.association :ingredient%>
-    <%= f.button :submit, class: "bt btn-primary" %>
-  <% end %>
-
-  <%= link_to root_path, :action => 'go' do %>
-    <div class="text-center grow add-new-button">
-      <i class="fas fa-arrow-left fa-2x"></i>
-      <h3 class="add-new-text">Return to home</h3>
-    </div>
-  <% end %>
+<div class="container d-flex flex-column justify-content-center">
+  <h1 class=text-center>Add something to "<%= @cocktail.name %>" </h1>
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description%>
+      <%= f.association :ingredient%>
+      <div class="create-button">
+        <%= f.button :submit, class: "bt btn-primary grow" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="return-home">
+    <%= link_to root_path, :action => 'go' do %>
+      <div class="text-center grow add-new-button">
+        <i class="fas fa-arrow-left fa-2x"></i>
+        <h3 class="add-new-text">Return to home</h3>
+      </div>
+    <% end %>
+  </div>
   <!--<p>Find me in app/views/doses/new.html.erb</p>-->
 </div>
