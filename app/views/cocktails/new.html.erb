@@ -4,9 +4,7 @@
     <%= simple_form_for [@cocktail] do |f| %>
       <%= f.input :name %>
       <%= f.input :photo, as: :file %>
-      <div class="create-button">
-        <%= f.button :submit, class: "bt btn-primary grow" %>
-      </div>
+
     <% end %>
   </div>
   <div class="return-home">

@@ -2,8 +2,8 @@
   <h1 class=text-center>Add something to "<%= @cocktail.name %>" </h1>
   <div class="d-flex justify-content-center">
     <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.input :description%>
-      <%= f.association :ingredient%>
+      <%= f.input :description , input_html: { class: "ingredient-dropdown" } %>
+      <%= f.association :ingredient, input_html: { class: "ingredient-dropdown" } %>
       <div class="create-button">
         <%= f.button :submit, class: "bt btn-primary grow" %>
       </div>
