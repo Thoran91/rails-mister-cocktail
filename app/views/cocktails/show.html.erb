@@ -4,7 +4,7 @@
       <%if @cocktail.photo.attached?%> 
           <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill, :class => "pic-margin" %>
       <% else %>
-          <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg" %>
+          <%= cl_image_tag "https://res.cloudinary.com/tom-horan/image/upload/v1608383833/l7lcs5zp318e5q63zl8ncl4kj6bf.jpg", height: 400, width: 400, crop: :fill, :class => "pic-margin" %>
       <%end%>
     </div>
     <div class="col">
@@ -28,7 +28,7 @@
       <div class="row">
         <% @cocktail.doses.each do |dose| %>
           <div class="dose-list">
-            <h3 class="d-inline"><%= dose.description %>-<%= dose.ingredient.name%></h3>
+            <h3 class="d-inline"><%= dose.description %>: <%= dose.ingredient.name%></h3>
             <%= link_to raw('<i class="fas fa-trash grow"></i>'), dose_path(dose), 
             method: :delete, 
             data: { confirm: "Are you sure?" } %>
