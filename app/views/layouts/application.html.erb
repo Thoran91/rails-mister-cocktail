@@ -12,6 +12,14 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-lewagon">
+      <%= link_to root_path, :action => 'go' do %>
+        <div class="logo-color text-center">
+          <i class="fas fa-glass-martini-alt fa-3x"></i><h1 class="d-inline">Mr. Cocktail</h1>
+        </div>
+      <% end %>
+      <p class="nav-text"> Create your own collection of cocktails!</p>
+    </nav>
     <%= yield %>
   </body>
 </html>
