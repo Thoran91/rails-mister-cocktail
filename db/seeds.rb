@@ -16,11 +16,13 @@ Ingredient.create(name: "Lemon Juice")
 Ingredient.create(name: "Vodka")
 Ingredient.create(name: "Whiskey")
 Ingredient.create(name: "Rum")
+Ingredient.create(name: "Gin")
 
 Ingredient.create(name: "Ice")
 Ingredient.create(name: "Crushed Ice")
 
 Ingredient.create(name: "Mint Leaf")
+Ingreditent.create(name: "Olive")
 
 Ingredient.create(name: "Sugar")
 Ingredient.create(name: "Simple Syrup")
